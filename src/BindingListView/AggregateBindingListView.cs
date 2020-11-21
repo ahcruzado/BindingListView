@@ -1776,7 +1776,9 @@ namespace Equin.ApplicationFramework
         /// </exception>
         void IList.Clear()
         {
-            throw new NotSupportedException(Properties.Resources.CannotClearView);
+            //TODO:ver por qué no lo soportaba
+            //throw new NotSupportedException(Properties.Resources.CannotClearView);
+            base.c
         }
 
         /// <summary>
@@ -2231,6 +2233,35 @@ namespace Equin.ApplicationFramework
         }
 
         #endregion
-        
+
+        private bool raiseListChangedEvents = true;
+        public void ResetBindings()
+        {
+            FireListChanged(ListChangedType.Reset, -1);
+        }
+
+        // Private helper method
+        private void FireListChanged(ListChangedType type, int index)
+        {
+            if (this.raiseListChangedEvents)
+            {
+                OnListChanged(new ListChangedEventArgs(type, index));
+            }
+        }
+
+        public bool RaiseListChangedEvents
+        {
+            get
+            {
+                return this.raiseListChangedEvents;
+            }
+            set
+            {
+                if (this.raiseListChangedEvents != value)
+                {
+                    this.raiseListChangedEvents = value;
+                }
+            }
+        }
     }
 }
