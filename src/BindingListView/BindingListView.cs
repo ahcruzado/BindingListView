@@ -22,11 +22,11 @@ namespace Equin.ApplicationFramework
             DataSource = list;
         }
 
-        public BindingListView(IContainer container)
-            : base(container)
-        {
-            DataSource = null;
-        }
+        //public BindingListView(IContainer container)
+        //    : base(container)
+        //{
+        //    DataSource = null;
+        //}
 
         [DefaultValue(null)]
         [AttributeProvider(typeof(IListSource))]

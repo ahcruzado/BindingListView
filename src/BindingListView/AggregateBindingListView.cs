@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace Equin.ApplicationFramework
 {
-    public class AggregateBindingListView<T> : Component, IBindingListView, IList, IRaiseItemChangedEvents, ICancelAddNew, ITypedList, IEnumerable<T>
+    public class AggregateBindingListView<T> : IBindingListView, IList, IRaiseItemChangedEvents, ICancelAddNew, ITypedList, IEnumerable<T>
     {
         #region Constructors
 
@@ -26,16 +26,16 @@ namespace Equin.ApplicationFramework
             _objectViewCache = new Dictionary<T,ObjectView<T>>();
         }
 
-        public AggregateBindingListView(IContainer container)
-            : this()
-        {
-            container.Add(this);
+        //public AggregateBindingListView(IContainer container)
+        //    : this()
+        //{
+        //    container.Add(this);
 
-            if (Site is ISynchronizeInvoke)
-            {
-                SynchronizingObject = Site as ISynchronizeInvoke;
-            }
-        }
+        //    if (Site is ISynchronizeInvoke)
+        //    {
+        //        SynchronizingObject = Site as ISynchronizeInvoke;
+        //    }
+        //}
 
         #endregion
 
@@ -1778,7 +1778,7 @@ namespace Equin.ApplicationFramework
         {
             //TODO:ver por qué no lo soportaba
             //throw new NotSupportedException(Properties.Resources.CannotClearView);
-            base.c
+            SourceLists.Clear();
         }
 
         /// <summary>

@@ -40,12 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateBindingListView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BindingListView.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="AggregateBindingListView.cs" />
+    <Compile Include="BindingListView.cs" />
     <Compile Include="CompositeItemFilter.cs" />
     <Compile Include="IItemFilter.cs" />
     <Compile Include="INotifyingEditableObject.cs" />
